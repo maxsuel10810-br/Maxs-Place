@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <h1 class="typewriter" data-text="Hi guys!">Hi guys!</h1>
+            <h2 class="typewriter" data-text="Welcome to my site">Welcome to my site</h2>
+        </header>
+
+        <main class="site-content">
+            <p class="typewriter" data-text="My name is Maxsuel, and I am Brazilian.">My name is Maxsuel, and I am Brazilian.</p>
+
+            <h2 class="typewriter" data-text="I have two things to say:">I have two things to say:</h2>
+            <ol>
+                <li><a class="typewriter" data-text="This site is so cool" href="https://neal.fun">This site is so cool</a></li>
+                <li><span class="typewriter" data-text="My site is a test">My site is a test</span></li>
+            </ol>
+        </main>
+
+        <footer class="site-footer">
+            <h4 class="typewriter" data-text="All rights are not reserved: 2026">All rights are not reserved: 2026</h4>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = Array.from(document.querySelectorAll('.typewriter'));
+            let delay = 0;
+            elements.forEach(el => {
+                const text = el.dataset.text || el.textContent.trim();
+                el.textContent = '';
+                el.classList.remove('cursor-off');
+
+                setTimeout(() => {
+                    let i = 0;
+                    const speed = 25;
+                    const interval = setInterval(() => {
+                        el.textContent += text.charAt(i);
+                        i += 1;
+                        if (i >= text.length) {
+                            clearInterval(interval);
+                            el.classList.add('cursor-off');
+                        }
+                    }, speed);
+                }, delay);
+
+                delay += Math.max(600, text.length * 30);
+            });
+        });
+    </script>
+</body>
+</html>

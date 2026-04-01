@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Matrix Code NFI', 'Courier New', monospace;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    overflow-x: hidden;
+}
+
+/* Matrix rain effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.03) 0px,
+            rgba(0, 255, 0, 0.03) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 2px;
+}
+
+p, a, button {
+    text-shadow: 0 0 2px #0f0;
+}
+
+.typewriter::before {
+    text-shadow: none; /* remove blur glow in typed text */
+}
+
+.typewriter {
+    text-shadow: none;
+}
+
+a {
+    color: #0f0;
+    text-decoration: none;
+    border-bottom: 1px solid #0f0;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+button {
+    background-color: #000;
+    color: #0f0;
+    border: 2px solid #0f0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #0f0;
+    color: #000;
+    box-shadow: 0 0 20px #0f0;
+}
+
+input, textarea {
+    background-color: #001a00;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 8px;
+}
+
+/* Layout: header top, body center, footer bottom */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    gap: 0.5rem;
+}
+
+.site-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+}
+
+.site-content ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.site-content li {
+    margin: 0.4rem 0;
+}
+
+.site-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 300;
+    opacity: 0.85;
+    letter-spacing: 0.1rem;
+}
+
+/* Typing animation (JavaScript-driven) */
+.typewriter {
+    display: inline-block;
+    font-family: inherit;
+    color: #0f0;
+    white-space: nowrap;
+    border-right: 2px solid #0f0;
+    overflow: hidden;
+}
+
+.typewriter.cursor-off {
+    border-right-color: transparent;
+}
+
+
+ol li a {
+    border-bottom: none;
+    text-decoration: none;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #0f0; }
+}
